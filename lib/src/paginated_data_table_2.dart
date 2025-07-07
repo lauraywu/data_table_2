@@ -225,6 +225,7 @@ class PaginatedDataTable2 extends StatefulWidget {
     this.paginatorIconEnabledColor,
     this.footerTextStyle,
     this.footerDecoration,
+    this.footerHeight = 56.0,
   })  : assert(actions == null || (header != null)),
         assert(columns.isNotEmpty),
         assert(sortColumnIndex == null ||
@@ -556,6 +557,9 @@ class PaginatedDataTable2 extends StatefulWidget {
 
   /// The decoration to use for the footer.
   final BoxDecoration? footerDecoration;
+
+  /// The height of the footer.
+  final double footerHeight;
 
   @override
   PaginatedDataTable2State createState() => PaginatedDataTable2State();
@@ -967,7 +971,7 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
       child: IconTheme.merge(
         data: const IconThemeData(opacity: 0.54),
         child: Container(
-          height: 56.0,
+          height: widget.footerHeight,
 	  width: double.infinity,
 	  decoration: widget.footerDecoration,
           child: SingleChildScrollView(
