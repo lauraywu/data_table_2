@@ -221,6 +221,7 @@ class PaginatedDataTable2 extends StatefulWidget {
     this.firstPageIcon,
     this.lastPageIcon,
     this.iconSize,
+    this.iconOpacity = 0.54,
     this.paginatorIconDisabledColor,
     this.paginatorIconEnabledColor,
     this.footerTextStyle,
@@ -545,6 +546,9 @@ class PaginatedDataTable2 extends StatefulWidget {
 
   /// The size of the paginator's arrow icons.
   final double? iconSize;
+
+  /// Opacity of the paginator's arrow icons. Defaults to 0.54
+  final double iconOpacity;
 
   /// Custom color for any of the paginator's arrow icons when disabled.
   final Color? paginatorIconDisabledColor;
@@ -969,7 +973,7 @@ class PaginatedDataTable2State extends State<PaginatedDataTable2> {
     return DefaultTextStyle(
       style: widget.footerTextStyle ?? footerTextStyle!,
       child: IconTheme.merge(
-        data: const IconThemeData(opacity: 0.54),
+        data: IconThemeData(opacity: widget.iconOpacity),
         child: Container(
           height: widget.footerHeight,
 	  width: double.infinity,
